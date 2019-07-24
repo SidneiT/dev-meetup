@@ -10,8 +10,13 @@
     </v-layout>
     <v-layout row wrap class="mt-2">
       <v-flex xs12>
-        <v-carousel>
-          <v-carousel-item v-for="meetup in meetups" :key="meetup.id" :src="meetup.src">
+        <v-carousel style="cursor:pointer;">
+          <v-carousel-item
+            v-for="meetup in meetups"
+            :key="meetup.id"
+            :src="meetup.src"
+            @click="loadMeetup(meetup.id)"
+          >
             <div class="title">{{meetup.title}}</div>
           </v-carousel-item>
         </v-carousel>
@@ -43,6 +48,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    loadMeetup(id) {
+      this.$router.push("/meetup/" + id);
+    }
   }
 };
 </script>
