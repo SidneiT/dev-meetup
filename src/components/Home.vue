@@ -34,20 +34,13 @@
 export default {
   data() {
     return {
-      meetups: [
-        {
-          src: "https://img.dgabc.com.br/Imagens/201843082513.jpg?largura=945",
-          id: "a09fei09seif0932",
-          title: "Meetup in Diadema"
-        },
-        {
-          src:
-            "https://s3.amazonaws.com/bucket-gw-cni-static-cms-si/portaldaindustria/noticias/media/imagem_plugin/sopaulo_Ed2fQ4p.jpg",
-          id: "a09fei09seif0933",
-          title: "Meetup in São Paulo"
-        }
-      ]
+     
     };
+  },
+  computed:{
+    meetups(){
+      return this.$store.getters.featuredMeetups
+    }
   },
   methods: {
     loadMeetup(id) {
